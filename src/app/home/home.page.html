@@ -7,18 +7,28 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <!-- Div con todo el contenido. -->
   <div class="ion-padding">
-    <div id="divVal1">
+    <!-- Div para el primer valor. -->
+    <div class="ion-padding" id="divVal1">
       <ion-label>Valor 1</ion-label>
       <ion-input type="number" [(ngModel)]="val1" placeholder="Introduzca un número"></ion-input>
     </div>
-    <div id="divVal2">
+    <!-- Div para el segundo valor -->
+    <div class="ion-padding" id="divVal2">
       <ion-label>Valor 2</ion-label>
       <ion-input type="number" [(ngModel)]="val2" placeholder="Introduzca un número"></ion-input>
     </div>
-    <div id="divResult" *ngIf="result != undefined">
+    
+    <!-- Div con el resultado de la operación.
+      También muestra el tipo de operación actual.
+    -->
+    <div class="ion-padding" id="divResult" *ngIf="result != undefined">
       <ion-card>
         <ion-card-header>
+          Tipo de operación: {{ operation }}
+          <br>
+          <br>
           Resultado:
         </ion-card-header>
         <ion-card-content>
@@ -26,7 +36,10 @@
         </ion-card-content>
       </ion-card>
     </div>
-    <div id="divOperations">
+    <!-- Div con los botones de acción.
+      Cada botón tiene asociado una operación.
+    -->
+    <div class="ion-padding" id="divOperations">
       <ion-button (click)="add()">
         Sumar
       </ion-button>
@@ -41,6 +54,12 @@
       </ion-button>
       <ion-button (click)="power()">
         Potencia
+      </ion-button>
+    </div>
+    <!-- Div para borrar los valores actuales y reinciar. -->
+    <div class="ion-padding" id="divReset">
+      <ion-button (click)="reset()" expand="block" color="danger">
+        Reiniciar
       </ion-button>
     </div>
 
